@@ -1,1 +1,1 @@
-"# Software Engineering Course Assignments" 
+# Software Engineering Course Assignments
