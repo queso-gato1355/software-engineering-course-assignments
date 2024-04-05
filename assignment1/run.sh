@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mongod --bind_ip_all &
+
 cd ./milestone1
 
 mvn package

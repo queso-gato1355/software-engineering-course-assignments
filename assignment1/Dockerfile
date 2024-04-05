@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 
 # Install prerequisites
 RUN apt-get update \
-    && apt-get install -y wget gnupg2 openjdk-17-jdk maven vim \
+    && apt-get install -y wget gnupg2 openjdk-17-jdk maven vim curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Import MongoDB public GPG key
@@ -30,7 +30,7 @@ WORKDIR /root/project
 ADD milestone1 /root/project/milestone1
 ADD run.sh /root/project/run.sh
 
-RUN chmode +x run.sh
+RUN chmod +x /root/project/run.sh
 
 EXPOSE 27017
 
