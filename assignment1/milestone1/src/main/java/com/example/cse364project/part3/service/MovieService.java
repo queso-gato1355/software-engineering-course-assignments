@@ -22,19 +22,16 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
-    @SuppressWarnings("null")
     public Movie getMovieById(String id) {
         return movieRepository.findById(id)
                 .orElseThrow(() -> new MovieNotFoundException("Could not find ID " + id + "."));
     }
 
-    @SuppressWarnings("null")
     public Movie addMovie(Movie movie) {
         if (movieRepository.existsById(movie.getId())) return updateMovie(movie.getId(), movie);
         return movieRepository.save(movie);
     }
 
-    @SuppressWarnings("null")
     public Movie updateMovie(String id, Movie movie) {
         Movie updatedMovie = movieRepository.findById(id)
                 .orElseThrow(() -> new MovieNotFoundException("Could not find ID " + id + "."));
@@ -44,7 +41,6 @@ public class MovieService {
         return movieRepository.save(updatedMovie);
     }
 
-    @SuppressWarnings("null")
     public void deleteMovie(String id) {
         if (!movieRepository.existsById(id))
             throw new MovieNotFoundException("Could not find ID " + id + ".");

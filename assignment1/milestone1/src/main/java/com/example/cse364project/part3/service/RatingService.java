@@ -44,14 +44,12 @@ public class RatingService {
                         "The entry that has " + movieId + " & " + userId + " is not exist."));
     }
 
-    @SuppressWarnings("null")
     public Rating addRating(Rating rating) {
         if (ratingRepository.existsById(rating.getId()))
             return updateRating(rating.getId(), rating);
         return ratingRepository.save(rating);
     }
 
-    @SuppressWarnings("null")
     public Rating updateRating(String id, Rating newRating) {
         Rating updatedRating = ratingRepository.findById(id)
                 .map(rating -> {
@@ -68,7 +66,6 @@ public class RatingService {
         return updatedRating;
     }
 
-    @SuppressWarnings("null")
     public void deleteRating(String id) {
         ratingRepository.deleteById(id);
     }

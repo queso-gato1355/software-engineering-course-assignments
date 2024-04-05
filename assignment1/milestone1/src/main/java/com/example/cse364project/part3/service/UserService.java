@@ -20,20 +20,17 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    @SuppressWarnings("null")
     public User getUserById(String id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("Could not find ID " + id + "."));
     }
 
-    @SuppressWarnings("null")
     public User addUser(User user) {
         if (userRepository.existsById(user.getId()))
             return updateUser(user.getId(), user);
         return userRepository.save(user);
     }
 
-    @SuppressWarnings("null")
     public User updateUser(String id, User user) {
         User updatedUser = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("Could not find ID" + id + "."));
@@ -44,7 +41,6 @@ public class UserService {
         return userRepository.save(updatedUser);
     }
 
-    @SuppressWarnings("null")
     public void deleteUser(String id) {
         userRepository.deleteById(id);
     }
