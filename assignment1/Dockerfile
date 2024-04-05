@@ -32,4 +32,6 @@ ADD run.sh /root/project/run.sh
 
 RUN chmode +x run.sh
 
+EXPOSE 27017
+
 CMD ["/bin/bash"]
